@@ -48,7 +48,7 @@ net = load_model()
 if uploaded_file is not None:
     image = np.array(Image.open(uploaded_file))
     
-    placeholders = st.beta_columns(2)
+    placeholders = st.columns(2)
     placeholders[0].image(image)
     conf_threshold = st.slider("SET Confidence Threshold", min_value = 0.01, max_value = 1.0, step = .01, value=0.5)
     out_image,_ = detectFaceOpenCVDnn(net, image, conf_threshold=conf_threshold)
